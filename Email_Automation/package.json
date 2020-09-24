@@ -1,0 +1,25 @@
+{
+  "name": "email_automation",
+  "version": "1.0.0",
+  "description": "Automated Email/Report Sending via node-cron and node-mailer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jasmeet-1998/myWorkSamples.git#myworksamples"
+  },
+  "author": "Jasmeet Singh Bali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jasmeet-1998/myWorkSamples/issues"
+  },
+  "homepage": "https://github.com/Jasmeet-1998/myWorkSamples/tree/myworksamples#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.11"
+  }
+}
