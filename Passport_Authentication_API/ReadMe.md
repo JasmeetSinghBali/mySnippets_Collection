@@ -20,7 +20,7 @@ Registeration Page->
 
 <img src ="https://user-images.githubusercontent.com/67728575/94106244-a78f8780-fe58-11ea-903d-c90d1fa98793.png">
 
-<img src="https://user-images.githubusercontent.com/67728575/94106251-ac543b80-fe58-11ea-965f-6967666f17fa.png>
+<img src="https://user-images.githubusercontent.com/67728575/94106251-ac543b80-fe58-11ea-965f-6967666f17fa.png">
           
           
 Login page
