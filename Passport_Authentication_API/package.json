@@ -1,0 +1,35 @@
+{
+  "name": "passport_authentication_api",
+  "version": "1.0.0",
+  "description": "Authentication API with Passport.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jasmeet-1998/mySnippets_Collection.git"
+  },
+  "author": "Jasmeet Singh Bali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jasmeet-1998/mySnippets_Collection/issues"
+  },
+  "homepage": "https://github.com/Jasmeet-1998/mySnippets_Collection#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
