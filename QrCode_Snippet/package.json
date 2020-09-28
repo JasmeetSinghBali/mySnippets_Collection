@@ -1,0 +1,26 @@
+{
+  "name": "qrcode_snippet",
+  "version": "1.0.0",
+  "description": "QR code Scanner",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jasmeet-1998/mySnippets_Collection.git"
+  },
+  "author": "Jasmeet Singh Bali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jasmeet-1998/mySnippets_Collection/issues"
+  },
+  "homepage": "https://github.com/Jasmeet-1998/mySnippets_Collection#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "qrcode": "^1.4.4"
+  }
+}
