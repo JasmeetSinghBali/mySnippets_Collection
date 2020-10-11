@@ -5,7 +5,7 @@ Bunch Of Snippets That can be used as  components for big or small Applications 
 Glimpse Of My Developed Snippets/Boileplates and Small WebApp's.
 
 
-<b>Text To Speech App Via WebSpeechAPI</b>
+<b>Text To Speech and Vice-a-Vers App Via WebSpeechAPI and SpeechRecoginition API</b>
 ================================================
 
 
@@ -13,9 +13,5 @@ Glimpse Of My Developed Snippets/Boileplates and Small WebApp's.
 
 
 
-
-
-
-<b>Speech To Text Via SpeechRecoginition API</b>
 
 <img src="https://user-images.githubusercontent.com/67728575/95678222-e2c7df80-0be8-11eb-8ae5-f0e172efa4d7.png">
