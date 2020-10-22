@@ -5,7 +5,7 @@ Bunch Of Snippets That can be used as  components for big or small Applications 
 Glimpse Of My Developed Snippets/Boileplates and Small WebApp's.
 
 
-<b>Text To Speech and Speech to text App Via WebSpeechAPI and SpeechRecoginition API</b><a href="https://ggdr95sya4uxdleymuw2qw-on.drv.tw/text-speech_via_WebSpeechAPIby_Jasmeet/WebSpeechAPI_text-speech/"><b>Go See Text to Speech Demo </b></a><br><a href="https://ggdr95sya4uxdleymuw2qw-on.drv.tw/speech-text/Speech-text_speechRecoginitionremakeby_Jasmeet/"><b>Go See Speech To Text Demo</b></a>
+<b>Text To Speech and Speech to text App Via WebSpeechAPI and SpeechRecoginition API</b>
 ================================================
 
 
