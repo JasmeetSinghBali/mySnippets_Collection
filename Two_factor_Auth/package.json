@@ -1,0 +1,20 @@
+{
+  "name": "two_factor_auth",
+  "version": "1.0.0",
+  "description": "2 Factor Authentication\r ----------------------------\r with\r -Speakeasy\r Source-https://github.com/speakeasyjs/speakeasy",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Jasmeet",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-json-db": "^1.1.0",
+    "speakeasy": "^2.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
