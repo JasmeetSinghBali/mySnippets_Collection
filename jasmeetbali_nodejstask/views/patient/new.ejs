@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center;">Add New Patient Record</h1>
+		<div style="width:30%; margin: 30px auto;">
+			<form action="/details" method="POST" enctype="multipart/form-data">
+				<div class="form-group"><!--form group helps in spacing between the name,image and submit-->
+					<input class="form-control" type="text" name="name" placeholder="Name.....">
+				</div>
+        <div class="form-group"><!--form group helps in spacing between the name,image and submit-->
+					<input class="form-control" type="text" name="doctor_appointed" placeholder="Doctor Appointed.....">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="address" placeholder="Address.....">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="file" name="image" placeholder="Patient Photo....">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="email" name="email" placeholder="Email......">
+				</div>
+        <div class="form-group">
+					<input class="form-control" type="number" name="phone" placeholder="Phone......">
+				</div>
+        <div class="form-group">
+					<input class="form-control" type="password" name="password" placeholder="Password......">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-lg btn-primary btn-block ">Submit!</button>
+				</div>
+			</form>
+	</div>
+</div>
