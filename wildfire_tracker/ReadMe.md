@@ -1,8 +1,8 @@
-# Wildfire Tracker
+# Wildfire Tracker Supported By NASA API.
 
 By - ****Jasmeet Singh Bali****
 
-Timestamp 1012
+
 
 # Major Building Blocks-
 
@@ -108,6 +108,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-Timestamp:4:25
