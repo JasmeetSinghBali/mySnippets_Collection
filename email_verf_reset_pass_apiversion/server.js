@@ -3,7 +3,8 @@ const express=require('express'),
       app=express(),
       bodyParser=require('body-parser'),
       mongoose=require('mongoose'),
-      authRoute=require('./controllers/auth'),
+      signupRoute=require('./controllers/auth'),
+      emailActivate=require('./controllers/verify'),
       PORT=process.env.PORT || 3000;
 
 dotenv.config();
@@ -22,7 +23,8 @@ app.get('/',(req,res)=>{
 });
 
 //Auth Route
-app.use('/emailverf/apiversion',authRoute);
+app.use('/signup',signupRoute);
+app.use('/emailactivate',emailActivate);
 
 app.listen(PORT,process.env.IP,()=>{
   console.log(`Server started at Port:${PORT}`);

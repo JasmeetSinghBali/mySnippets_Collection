@@ -1,5 +1,7 @@
 # Email Verification and Reset Password With Node and Express
 
+### Aim: Add New User to Database On email verification
+
 ### API Version
 
 ****By: Jasmeet****
@@ -52,9 +54,9 @@ Core Packages and External API Used-
 
 
 
-### Step 4 Making a request For Creating New User and Sending Email Verification Link.
+### Step 4 Making a request in Postman For Creating New User and Sending Email Verification Link.
 
-- POST http://localhost:3000/emailverf/apiversion/newUser
+- POST http://localhost:3000/signup/newUser
 
 ****in the request body send json object as****
 
@@ -62,4 +64,20 @@ Core Packages and External API Used-
         "name":"Waduuu",
         "email":"to whom the email verify link will be send the one you specify in the Authorized Recipients in Mailgun",
         "password":"a password you want to create for the user"
+      }
+
+### Step 5 Verifying token recieved in email
+
+- POST http://localhost:3000/emailactivate/verify
+
+****in the request body send json object as****
+
+     {
+       "token":"the token that your recieved via email in step 4"
+      }
+
+****Success****
+
+      {
+          "Success": "6086ca52c60a0556d0e22930 : Account has been Verified and User Added to Database"
       }

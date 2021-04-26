@@ -37,13 +37,15 @@ router.post('/newUser',async (req,res) =>{
       apiKey: process.env.MAILGUN_API_KEY,
       domain: DOMAIN
     });
-    const act_link= `<html><body><a href="${process.env.CLIENT_URL}/activate/${token}">Activate Your Account</a></body></html>`
+
+    const act_link= `<h3>${process.env.CLIENT_URL}/activate/${token}">Activate Your Account</h3>`
     console.log(`Trying to Send Mail To ${req.body.name} with Email: ${req.body.email}...`);
+    console.log(act_link);
     const data = {
       from: 'fromMailgun@hello.com',
       to: req.body.email,
 	    subject: 'Account Activation Link',
-	    html: act_link
+	    html: `Only use the token after activate/ copy it and send it as json object in request body in postman to verify the token => ${act_link}`
     };
     mg.messages().send(data, function (error, body) {
       if(error){
@@ -72,6 +74,8 @@ router.post('/newUser',async (req,res) =>{
     res.status(400).send(err);
   }
 });
+
+
 
 
 module.exports=router;
