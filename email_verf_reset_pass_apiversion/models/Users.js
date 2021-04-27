@@ -20,6 +20,10 @@ const userSchema=new mongoose.Schema({
     max:1024,
     min:6
   },
+  resetLink:{
+    data:String,
+    default:''
+  },
   date:{
     type:Date,
     default:Date.now

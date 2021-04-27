@@ -5,6 +5,7 @@ const express=require('express'),
       mongoose=require('mongoose'),
       signupRoute=require('./controllers/auth'),
       emailActivate=require('./controllers/verify'),
+      forgotPassword=require('./controllers/resetpass'),
       PORT=process.env.PORT || 3000;
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get('/',(req,res)=>{
 //Auth Route
 app.use('/signup',signupRoute);
 app.use('/emailactivate',emailActivate);
+app.use('/forgetpassword',forgotPassword);
 
 app.listen(PORT,process.env.IP,()=>{
   console.log(`Server started at Port:${PORT}`);

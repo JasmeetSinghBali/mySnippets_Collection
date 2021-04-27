@@ -20,21 +20,25 @@ router.post('/verify',async (req,res) =>{
         const {name,email,password}=decodedToken;
 
         // ========= Duplicate Email accounts Handle Validation Here Pending ==========
-        // Create new User
-        const user=new User({name,email,password});
-
-        // Add user to the database
-        user.save((err,success)=>{
-          if(err){
-            console.log('User Not Added To database');
-            return res.status(400).send(err)
+        User.findOne({email}).exec((err,user)=>{
+          if(user){
+            return res.status(400).send('Email Already Exists');
           }
-          console.log('Verified User added to database')
-          return res.send({Success:`${user._id} : Account has been Verified and User Added to Database`});
-        });
 
+          // Create new User
+          const newUser=new User({name,email,password});
 
+          // Add user to the database
+          newUser.save((err,success)=>{
+            if(err){
+              console.log('User Not Added To database');
+              return res.status(400).send(err)
+            }
+            console.log('Verified User added to database')
+            return res.send({Success:`${user._id} : Account has been Verified and User Added to Database`});
+          });
 
+        })
       });
 
 

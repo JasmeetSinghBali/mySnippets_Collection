@@ -57,17 +57,7 @@ router.post('/newUser',async (req,res) =>{
       return res.status(200).send(`Account Activation Link Sent at Email: ${email}! Please Click on that Link to activate your Account.`);
     });
 
-    // // Create new User
-    // const user=new User({
-    //   name:req.body.name,
-    //   email:req.body.email,
-    //   password:hashPassword
-    // });
-    //
-    // // Add user to the database
-    //
-    // const savedUser=await user.save();
-    // res.send({user_created:user._id});
+    
 
   }catch(err){
     console.log(err);
