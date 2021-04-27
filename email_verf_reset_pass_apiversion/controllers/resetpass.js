@@ -8,12 +8,12 @@ const mailgun = require("mailgun-js");
 
 
 
-// Reset Password
+// Send Token to Reset Password and update the reset link in the database
 router.put('/reset',async (req,res) =>{
   try{
-    const email=req.body.email;
+    const {email}=req.body;
 
-    User.findOne({email:email}).exec((err,user)=>{
+    User.findOne({email}).exec((err,user)=>{
       if(user){
 
         console.log(user);
@@ -25,7 +25,7 @@ router.put('/reset',async (req,res) =>{
         });
 
         const act_link= `<h3>${process.env.CLIENT_URL}/resetpassword/${token}">Reset My Password</h3>`
-        console.log(`Trying to Send Mail To ${req.body.name} with Email: ${req.body.email}...`);
+        console.log(`Trying to Send Mail To  Email: ${email}...`);
         console.log(act_link);
         const data = {
           from: 'fromMailgun@hello.com',
@@ -39,7 +39,7 @@ router.put('/reset',async (req,res) =>{
           domain: DOMAIN
         });
 
-        // Update the reset link in the database of the user.
+        // Update the reset link in the database of the user so that we know that the user who is requesting for reset password is actually the one with the token we sent to
         return user.updateOne({resetLink:token},(err,success)=>{
           if(err){
             return res.status(400).send('Reset Link Not Updated in the Database');
@@ -59,7 +59,7 @@ router.put('/reset',async (req,res) =>{
 
       }
       else{
-        console.log(req.body)
+        console.log(req.body);
         return res.status(400).send('No User Found with this email');
       }
 

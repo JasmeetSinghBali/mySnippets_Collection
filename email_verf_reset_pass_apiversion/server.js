@@ -6,6 +6,7 @@ const express=require('express'),
       signupRoute=require('./controllers/auth'),
       emailActivate=require('./controllers/verify'),
       forgotPassword=require('./controllers/resetpass'),
+      newPassword=require('./controllers/resetnewpass'),
       PORT=process.env.PORT || 3000;
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.get('/',(req,res)=>{
 app.use('/signup',signupRoute);
 app.use('/emailactivate',emailActivate);
 app.use('/forgetpassword',forgotPassword);
+app.use('/newpasswordset',newPassword);
 
 app.listen(PORT,process.env.IP,()=>{
   console.log(`Server started at Port:${PORT}`);
