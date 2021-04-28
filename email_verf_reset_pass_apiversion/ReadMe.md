@@ -11,6 +11,7 @@ Core Packages and External API Used-
 - Express
 - MailGun API
 - jsonwebtoken
+- lowdash https://lodash.com/docs/
 
 ***
 
@@ -48,7 +49,14 @@ Core Packages and External API Used-
 #### Example- shjdhsjdhsjdhsjdhsjhdasda-hh4jh5j4-djfkdj5 this is your API key
 
 ***
-### Step 3 Creating a .env file in the root level of this Project.
+### Step 3 Creating a .env file in the root level of this Project and set the following config env variables.
+
+      MONGO_DB=YOUR MONGO DB URL
+      DOMAIN_MAILGUN=YOUR MAILGUN DOMAIN
+      MAILGUN_API_KEY=YOUR MAILGUN API KEY
+      JWT_ACTIV_TOKEN=YOUR Secret FOR ACCOUNT ACTIVATION
+      CLIENT_URL=http://localhost:3000
+      JWT_RESET_PASS=RESETMYpasswordSECRET
 
 
 
@@ -79,5 +87,38 @@ Core Packages and External API Used-
 ****Success****
 
       {
-          "Success": "6086ca52c60a0556d0e22930 : Account has been Verified and User Added to Database"
+          "Success": "a0556d0e22930 : Account has been Verified and User Added to Database"
       }
+
+### Step 6 Forget password
+
+- PUT http://localhost:3000/forgetpassword/reset
+
+****in the request body send json object as****
+
+        {
+           "email":"user@gmail.com"
+          }
+
+****Success****
+
+Account Reset token Sent at Email: user@gmail.co! Please Use that token to Reset Password
+
+
+### Step 7 Reset Pass via resetLink i.e token recieved in mail
+
+- PUT http://localhost:3000/newpasswordset/newpass
+
+****in the request body send json object as****
+
+        {
+          "resetLink":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC",
+
+          "newPass":"newPass"
+          }
+
+****Success****
+
+        {
+          "success": "Password Changed!!"
+        }
