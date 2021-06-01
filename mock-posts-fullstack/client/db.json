@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "text": "Blockchain & the Future of Internet",
+      "day": "Feb 5th at 11:30 am",
+      "likes": true
+    },
+    {
+      "id": 2,
+      "text": "The Big Question AI",
+      "day": "Jan 7th at 4:30 pm",
+      "likes": false
+    }
+  ]
+}
