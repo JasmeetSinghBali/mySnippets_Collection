@@ -1,0 +1,20 @@
+{
+  "name": "express_rest_starter_kit",
+  "version": "1.0.0",
+  "description": "Express, MongoDB , REST API starter Kit with JWT Auth",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node -r esm api/server.js",
+    "dev": "nodemon -r esm api/server.js"
+  },
+  "author": "Jasmeet Singh Bali (devs.us.1984@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
