@@ -2,7 +2,7 @@
 
 ****Status : Under Development****
 
-22 at register controller logic
+141 JWT signature part
 
 > ## API folder structure
 
@@ -26,14 +26,18 @@
 
 ****routes has all the routes path along with controller refference that is exported via common index.js to be imported in the server.js****
 
-***
-***
+Routes(make it with readme.so table format)
+
+=====================
+Developer Section
+=====================
+
 
 > #### Blueprint
 
 - [ ] API Endpoints
   - [ ] Register (new user)
-    - [ ] Validate the request
+    - [x] Validate the request
     - [ ] authorize the request
     - [ ] check if user already exists
     - [ ] prepare-model
@@ -48,3 +52,13 @@
     - [ ] Get All
     - [ ] Get Single
     - [ ] Delete
+
+> #### Issues
+> #### Future developments
+
+> #### Imp Facts encountered during development
+
+- [x] error handling middleware of express cannot catch errors if the error is thrown inside of a async function.
+***Solution: Use next() to pass the control along with the error to a general error handler(middleware) i.e using return next(error) instead of throw error****
+
+- [x] use custom error handler when error origin is from server.
