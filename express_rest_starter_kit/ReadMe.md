@@ -2,7 +2,7 @@
 
 ****Status : Under Development****
 
-141 JWT signature part
+231 whoami route
 
 > ## API folder structure
 
@@ -36,16 +36,16 @@ Developer Section
 > #### Blueprint
 
 - [ ] API Endpoints
-  - [ ] Register (new user)
+  - [x] Register (new user)
     - [x] Validate the request
-    - [ ] authorize the request
-    - [ ] check if user already exists
-    - [ ] prepare-model
-    - [ ] store in database
-    - [ ] generate jwt token
-    - [ ] send response
-  - [ ] Login    (existing user)
-  - [ ] Who am I (get info about user)
+    - [x] authorize the request
+    - [x] check if user already exists
+    - [x] prepare-model
+    - [x] store in database
+    - [x] generate jwt token
+    - [x] send response
+  - [x] Login (existing user)
+  - [x] Who am I (get info about user)
   - [ ] CRUD
     - [ ] Add      
     - [ ] Update
@@ -62,3 +62,5 @@ Developer Section
 ***Solution: Use next() to pass the control along with the error to a general error handler(middleware) i.e using return next(error) instead of throw error****
 
 - [x] use custom error handler when error origin is from server.
+- [x] when extending a parent class make sure to call the constructor of the parent class as super() in the constructor body of the child class like the CustomErrorHandler Services.
+- [x] remember if key and value variable of same name then we can write res.json({access_token}); instead of res.json({access_token:access_token}).
