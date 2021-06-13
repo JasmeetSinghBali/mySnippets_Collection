@@ -1,8 +1,9 @@
 import Joi from 'joi';
-import User from '../../models/user';
+import {User,RefreshToken} from '../../models';
 import CustomErrorHandler from '../../services/CustomErrorHandler';
 import bcrypt from 'bcrypt';
 import JWTService from '../../services/JWTService';
+import {REFRESH_SECRET} from '../../config';
 
 const loginController={
   async login(req,res,next){
@@ -33,12 +34,45 @@ const loginController={
       // Token
       const access_token = JWTService.sign({_id:user._id,role:user.role});
 
-      // send token to client
-      res.json({access_token});
+      const refresh_token = JWTService.sign({_id:user._id,role:user.role},'1d',REFRESH_SECRET);
+
+      // whitelist the refreshtoken in the DB
+      await RefreshToken.create({token:refresh_token});
+
+      // send access and refresh tokens to client
+      res.json(
+        {
+          access_token,
+          refresh_token
+        }
+      );
 
     }catch(err){
       return next(err);
     }
+  },
+  // logging Out User
+
+  async logout(req,res,next){
+
+    // validate request
+    const refreshSchema = Joi.object({
+      refresh_token: Joi.string().required()
+    });
+    const {error}=refreshSchema.validate(req.body);
+
+    if(error){
+      return next(error);
+    }
+    try{
+      await RefreshToken.deleteOne({token:req.body.refresh_token});
+
+    }catch(err){
+      return next(new Error('Something Went Wrong in the DB'+err.message));
+    }
+    res.json({
+      status:'User Logged Out, refresh token removed!!'
+    })
   }
 };
 
