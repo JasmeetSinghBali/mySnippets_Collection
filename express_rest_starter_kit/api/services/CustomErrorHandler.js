@@ -31,6 +31,13 @@ class CustomErrorHandler extends Error{
     return new CustomErrorHandler(404,message);
 
   }
+
+  // if not able to upload image
+  static serverError(message='Internal Server Error'){
+    // this method will be returning the object of this class
+    return new CustomErrorHandler(500,message);
+
+  }
 }
 
 export default CustomErrorHandler;

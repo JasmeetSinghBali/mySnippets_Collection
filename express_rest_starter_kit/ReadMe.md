@@ -69,7 +69,7 @@
   - [x] Generate the Refresh token on demand
   - [x] Logout the user
 - [ ] CRUD
-  - [ ] Add      
+  - [x] Add product with image upload multer local storage.      
   - [ ] Update
   - [ ] Get All
   - [ ] Get Single

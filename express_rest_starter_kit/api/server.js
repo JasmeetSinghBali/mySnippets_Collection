@@ -6,6 +6,8 @@ const app=express();
 import routes from './routes';
 import mongoose from 'mongoose';
 
+import path from 'path';
+
 // Database connection
 mongoose.connect(DB_URL,
  {
@@ -17,10 +19,19 @@ mongoose.connect(DB_URL,
  .then(() => console.log('------MongoDB Connected-----'))
  .catch(err => console.log(err));
 
+// global variable
+global.appRoot=path.resolve(__dirname);// this will store the current path of the parent folder i.e api folder in appRoot
 
-
+// for parsing json data
 app.use(express.json());
 
+// for parsing multiform data
+app.use(express.urlencoded({
+    extended:false
+  })
+);
+
+// api Routes
 app.use('/api',routes);
 
 
