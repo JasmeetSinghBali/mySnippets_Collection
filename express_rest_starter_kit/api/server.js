@@ -34,6 +34,9 @@ app.use(express.urlencoded({
 // api Routes
 app.use('/api',routes);
 
+// set up route to serve images as static assets
+//app.use('/uploads',express.static('uploads'));
+
 
 
 // General Error handler Middleware to be Placed just before the app.listen

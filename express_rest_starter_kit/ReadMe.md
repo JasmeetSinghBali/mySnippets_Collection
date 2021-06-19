@@ -1,8 +1,7 @@
 > ## REST API Starter Kit
 
-****Status : Under Development****
+****Status : DONE****
 
-313 CRUD to start
 
 > ## API folder structure
 
@@ -12,24 +11,35 @@
                -index.js
              *controllers
                -index.js
+               -productController.js
                *auth
                  -registerController.js
                  -loginController.js
+                 -refreshController.js
                  -whoamiController.js
              *middlewares
+               -admin.js
                -auth.js
                -errorHandler.js
              *models
                -index.js
                -user.js
+               -product.js
+               -refreshToken.js
              *routes
                -index.js
              *services
                - CustomErrorHandler.js
                - JWTService.js
+             *uploads
+               - 3748374834-3293829.jpg
+             *validators
+               -productValidation.js
             -server.js
 
 > #### REST EXPRESS API Boilerplate Structure Information (WHAT IS WHAT ?)
+
+- [x] ****server.js the entry file to start your api****
 
 - [x] ****config has (.env variables) exported via index.js****
 
@@ -43,15 +53,13 @@
 
 - [x] ****services includes Class based modules like CustomErrorHandler for handling d/f error cases and JWTService for signing JWT token****
 
-> ## Routes(make it with readme.so table format)
+- [x] ****uploads folder contain all the image uploaded via the Create New Product Route****
 
-***
-***
+- [x] ****validators contains Client Side Validation modules****
+
+
 
 > ## Developer Section
-
-
-
 
 > #### Blueprint
 
@@ -68,15 +76,15 @@
   - [x] Who am I (get info about user)
   - [x] Generate the Refresh token on demand
   - [x] Logout the user
-- [ ] CRUD
-  - [x] Add product with image upload multer local storage.      
-  - [ ] Update
-  - [ ] Get All
-  - [ ] Get Single
-  - [ ] Delete
+- [x] CRUD
+  - [x] Add product with image upload multer local storage Admin Only and Protected(requires Token in header Autorization:Bearer Token)      
+  - [x] Update Only Admin Protected needs access token in Header.
+  - [x] Get All
+  - [x] Get Single
+  - [x] Delete
+- [x] To make readme.so for node_cli
+- [x] To make the CLI to clone the repo for express-api-starter-kit
 
-> #### Issues
-> #### Future developments
 
 > #### Imp Facts encountered during development
 
