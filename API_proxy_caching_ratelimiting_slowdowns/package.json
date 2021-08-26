@@ -1,0 +1,20 @@
+{
+  "name": "api_proxy_caching_ratelimiting_slowdowns",
+  "version": "1.0.0",
+  "description": "----",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.3.0",
+    "express-slow-down": "^1.4.0",
+    "nodemon": "^2.0.12"
+  }
+}
