@@ -1,0 +1,19 @@
+{
+  "name": "pdfkit_generation_streaming",
+  "version": "1.0.0",
+  "description": "> What is it all about? 💡",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pdfkit": "^0.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
