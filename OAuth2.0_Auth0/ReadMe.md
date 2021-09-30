@@ -6,21 +6,12 @@
 
 > Auth0 - cloud identity provider uses OPENID connect protocol
 
-> ### 🎢 Snipppet Blueprint
+> ### 🎢 Snipppet Blueprint (🎇)
 
                             # ✔ To sum Up
-                            my-api (act as resource server)
                             Auth0 (act as authorization server)
-                            funapp (React frontend+api(to make request my-api)) act as Client who is trying to access my-api on behalf of a user.
-
-- [x] App frontend -> login and authorize->Auth0
-- [x] Auth0-> sends authorization code to App
-- [x] App frontend request data with authorization code-> App backend
-- [x] App Backend requests exchange of authorization code to get access token -> Auth0
-- [x] Auth0 sends acces token -> App backend
-- [x] App backend-> uses access token to access resources(make api calls to resource server)
-- [x] before response the resource server checks with the Auth0 server for the validity of the access token and finally sends data back to App backend.
-- [x] App backend then returns data back to App frontend .
+                            api part of (funapp act as resource server)
+                            funapp (React frontend part) act as Client who is trying to access api part of funapp via  Auth0 backed by OAuth2.0 and OpenID
 
 > ### 🎨 Complete Dev Logs
 
@@ -34,9 +25,6 @@
                     # Add permission
                     read:myapi         description Read your api resources
                     write:myapi        description Write your api resources
-
-- [x] **Now to parse JWT access token, refer quick start guide to configure your app backend to be able to parse and verify jwt access tokens.**
-- [x] **✨ to add permissions checks at my-api when it recieves an access token from funApp use package express-jwt-permissions**
 
 > ### 🎈 set up funApp
 
@@ -60,7 +48,7 @@
 
 ---
 
-> ### ✨ Auth0 Integration for React App (frontend) part of funapp
+> ### ✨ Auth0 Integration for React App (frontend at 3000) part of funapp
 
                     npx create-react-app funapp
                     npm i @auth0/auth0-react axios --save
@@ -113,8 +101,26 @@
 
 ---
 
-> ### ✨ Auth0 Integration for (backend part) of funapp refer api dir inside funapp dir
+> ### ✨ Auth0 Integration for (backend part at 5000) of funapp refer api dir inside funapp dir
+
+> refer App.js(React part) and index.js(api)
+
+> 👀 Aim -> is to protect our api route such that when the frontend part of funapp request from 3000/ wants to access protected resource at the 5000/protected route then Auth0 as authorization server will share authorization code that can later be used to generate access token(JWT) that can be verified by api(part of funapp) so as to give the client side of funapp access to /protected route.
 
 - cd api
 - npm init -y
 - npm i cors express --save
+- run both api and frontend part in seperate terminals
+
+- [x] **make a request from frontend App.js to the api(backend) refer App.js and make sure axios is installed at frontend**
+
+- [x] **create a api inside the api section inside Applications dashboard of Auth0**
+- [x] **now make changes to the index.js inside of api**
+- [x] **the idea is to verify jwt at backend api part of funapp that will be sent as access token by the Auth0 authorization server to the client**
+
+> 🎇IMPORTANT refer index.js inside src frontend Need to make sure to specify the audience and scopes so that when react make request to Auth0 servers it is treated as OpenID connect request i.e O.I.D.C request while audience will hold the unique identifier for resource_api
+
+                        audience="Unique identifier"
+                        scope="openid profile email"
+
+30:5
