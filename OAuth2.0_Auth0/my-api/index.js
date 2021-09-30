@@ -23,10 +23,10 @@ app.use(jwtCheck);
 
 // ✨ Authorization endpoint via which the my-api interacts with Auth0 first for permission checks✨
 // permissionChecker.check has list of scopes(strings) inside an array 
-app.get('/myapi', permissionChecker().check([`read:myapi`]), function (req, res) {
+app.get('/resources', permissionChecker().check([`read:myapi`]), function (req, res) {
     res.json({
-        myapi1: 'This is the first resource',
-        myapi2: 'This is the Second resource'
+        resource1: 'This is the first resource',
+        resource2: 'This is the Second resource'
     });
 });
 
