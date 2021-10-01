@@ -1,5 +1,5 @@
 import './App.css';
-// useAuth0 hook provides built in methods for login,logout etc..
+// 🎇useAuth0 hook provides built in methods for login,logout,isAuthenticated,getAccessTokenSilently etc..
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
@@ -8,18 +8,30 @@ function App() {
 
   // 🎈 API calls to backend at 5000
   function callApi(){
-    axios.get("http://localhost:5000/")
+    axios.get("http://localhost:5000")
     .then(response=>console.log(response.data))
-    .catch(error=>console.log(error));
+    .catch(error=>console.log(error.message));
   }
 
   // 🎇Grab the Access token recieved from the Auth0 authorization server🎇 
   async function callProtectedApi(){
-    const token = await getAccessTokenSilently();
-    console.log(token);
-    // axios.get("http://localhost:5000/protected")
-    // .then(response=>console.log(response.data))
-    // .catch(error=>console.log(error));
+    try{
+      const accessToken = await getAccessTokenSilently();
+    // console.log(accessToken);
+
+    // ✨send access token as authorization header to the api resource server at port 5000✨
+    const response = await axios.get('http://localhost:5000/protected',{
+      headers: {
+        authorization: `Bearer ${accessToken}`
+      }
+    });
+    
+    // ✨Recieved data from resource server api backend part of funapp✨
+    console.log(response.data);
+
+    }catch(err){
+      console.log(err.message);
+    }    
   }
   
   return (

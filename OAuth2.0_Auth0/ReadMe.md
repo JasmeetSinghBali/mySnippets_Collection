@@ -118,9 +118,27 @@
 - [x] **now make changes to the index.js inside of api**
 - [x] **the idea is to verify jwt at backend api part of funapp that will be sent as access token by the Auth0 authorization server to the client**
 
-> 🎇IMPORTANT refer index.js inside src frontend Need to make sure to specify the audience and scopes so that when react make request to Auth0 servers it is treated as OpenID connect request i.e O.I.D.C request while audience will hold the unique identifier for resource_api
+> 🎇IMPORTANT refer index.js inside src frontend Need to make sure to specify the audience and scopes so that when react app make request to Auth0 servers it is treated as OpenID connect request i.e O.I.D.C request while audience will hold the unique identifier for resource_api.
 
                         audience="Unique identifier"
                         scope="openid profile email"
 
-30:5
+- [x] login with redirect
+- [x] Authorize App to give consent
+- [x] call protected api route-> jwt access token in console open dev tools
+- [x] so now we need to send this jwt access token as authorization header when we make request via client (frontend part of funapp at port 3000) to the backend part of funapp acting as resource server i.e api at port 5000.
+
+                    # in App.js of client (frontend part of funapp)
+
+> ✨Verifying JWT access token at api (resource server) recieved from client side
+> **refer quickstart -> under api in Auth0 dashboard**
+
+- [x] cd api
+- [x] npm i express-jwt(for extracting token from request authorization header)
+- [x] npm i jwks-rsa (for jwt token verification rsa based)
+- [x] npm i axios (to get the user details from a database that is behind the api(resource server))
+- [x] **🎇different routest that dont need authentication or permission from Auth0 can be mentioned inside of the jwtVerify middleware as .unless refer index.js inside api**
+
+- [x] now the default route / will be accesible but the protected route of the resource server requires login to access it from the client side
+
+> 🎇Finally to get user info from api refer protected route index.js inside api
