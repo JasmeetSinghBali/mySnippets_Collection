@@ -42,3 +42,23 @@
 - Step 2 routes config /free & /premium each of them with url,proxy,creditCheck,auth
 - **Step 3 defining proxy rules using http-proxy-middleware https://www.npmjs.com/package/http-proxy-middleware**
 - Step 4 integerate proxyRules in server.js
+
+> Wait....but how does a proxy config looks like and what are the options here?
+
+                proxy: {
+                    target: "https://www.google.com",
+                    /** changeOrigin flag if set true then if a request
+                    * was made to different domain backend then it
+                    * will be possible basically cross origin request
+                    * proxies enabled kinda
+                    */
+                    changeOrigin: true,
+                    /** pathRewrite will change the path at runtime
+                    * the ^/free singnifies that "free" will be removed
+                    * form end of the request path hence redirected
+                    * to /
+                    */
+                    pathRewrite: {
+                        [`^/free`]: '',
+                    },
+                }

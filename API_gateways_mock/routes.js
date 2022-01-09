@@ -16,7 +16,17 @@ const Routes = [
         },
         proxy: {
             target: "https://www.google.com",
+            /** changeOrigin flag if set true then if a request
+             * was made to different domain backend then it
+             * will be possible basically cross origin request
+             * proxies enabled kinda
+             */
             changeOrigin: true,
+            /** pathRewrite will change the path at runtime
+             * the ^/free singnifies that "free" will be removed
+             * form end of the request path hence redirected
+             * to /
+             */
             pathRewrite: {
                 [`^/free`]: '',
             },
