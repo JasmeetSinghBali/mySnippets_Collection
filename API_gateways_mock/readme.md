@@ -62,3 +62,13 @@
                         [`^/free`]: '',
                     },
                 }
+
+> **for refference angular has similar type of proxy configs > https://github.com/chimurai/http-proxy-middleware#options**
+
+> Run & test what happens!!
+
+                npm i
+                npm run start
+
+
+                /free & /premium -> redirected to google.com

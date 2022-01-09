@@ -1,5 +1,5 @@
 /**Routes */
-const Routes = [
+const ROUTES = [
     /**Free
      * rate limited enabled
      * auth disabled

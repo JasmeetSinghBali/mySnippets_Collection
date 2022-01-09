@@ -6,4 +6,4 @@ const setupProxies = (app,routes)=>{
     });
 }
 
-exports.setupProxies = this.setupProxies
+exports.setupProxies = setupProxies
