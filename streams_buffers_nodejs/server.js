@@ -36,13 +36,29 @@ const server = http.createServer((req, res)=>{
     // res.end();
 
     // ✔ optimised way
-    const readStream = fs.createReadStream('sample.txt');
-    const writeStream = fs.createWriteStream('output.txt');
-    readStream.on('data',(chunk)=>{
-        console.log('Chunk: ', chunk, chunk.toString());
-        writeStream.write(chunk);
+    // const readStream = fs.createReadStream('sample.txt');
+    // const writeStream = fs.createWriteStream('output.txt');
+    // readStream.on('data',(chunk)=>{
+    //     console.log('Chunk: ', chunk, chunk.toString());
+    //     writeStream.write(chunk);
+    // });
+    // res.end();
+
+    /**
+     * 📝 transform streaming: example string processing [THIS CAN BE VIDEO/AUDIO Processing the approach will be similar]
+     */
+    // example- processing 1. convert all to uppercase, 2. replace all downloaddata with some other word 
+
+    const readableStream =  fs.createReadStream('sample.txt');
+    const writableSteam = fs.createWriteStream('output.txt');
+
+    // process incoming data in readable stream chunk by chunk
+    readableStream.on('data',(chunk)=>{
+        console.log('incoming data in buffer: ', chunk)
+        const processedString = chunk.toString().replaceAll(/downloaddata/gi,'wasreplaced') // gi global insensitive i.e matches both uppercase and lowercase
+        const processed2String = processedString.toUpperCase();
+        writableSteam.write(processed2String);
     });
-    res.end();
 });
 
 const PORT = process.env.PORT || 5001;
