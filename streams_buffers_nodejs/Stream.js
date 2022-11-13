@@ -1,4 +1,4 @@
-const { Readable } = require('node:stream');
+const { Writable, Readable } = require('node:stream');
 
 /**📝 Custom readable stream */
 
@@ -12,10 +12,21 @@ const readableStream = new Readable({
 
 });
 
-// listener when new data comes into the readable stream
+const writableStream = new Writable({
+    // optional
+    highWaterMark: 64,
+    // compulsary
+    write: function(s) {
+        console.log('writing data buffer: ', s);
+        console.log('writing data in string: ', s.toString());
+    }
+});
+
+// listener when new data comes into the readable stream, push it to the readable stream
 readableStream.on('data',(chunk)=>{
-    console.log('data in chunks: ', chunk); // ASCII code in hexadecimal
-    console.log('data in string: ', chunk.toString());
+    console.log('data incoming in chunks: ', chunk); // ASCII code in hexadecimal
+    console.log('data incoming in string: ', chunk.toString());
+    writableStream.write(chunk);
 });
 
 // push new data to empty readable stream
