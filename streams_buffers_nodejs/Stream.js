@@ -4,9 +4,10 @@ const { Writable, Readable } = require('node:stream');
 
 // empty readable stream created via Readable class
 const readableStream = new Readable({
+    // optional : ⭐ object mode helps to push objects in the streams where by default readable stream only allows array, string, buffer to push
+    objectMode: true,
     // optional: highWaterMark is thresh-hold in bytes of the buffer, if data exceeds 2bytes then the pushing of data in buffer will be optimized
-    highWaterMark: 2,
-
+    highWaterMark: 2, // ⭐ note the highWaterMark becomes number of object when we enable the objectMode to true by default its in bytes 
     // compulsion: read() must be implemented i.e mentioning read(){} 
     read(){}
 
@@ -26,10 +27,12 @@ const writableStream = new Writable({
 readableStream.on('data',(chunk)=>{
     console.log('data incoming in chunks: ', chunk); // ASCII code in hexadecimal
     console.log('data incoming in string: ', chunk.toString());
-    writableStream.write(chunk);
+   // writableStream.write(chunk);
 });
 
 // push new data to empty readable stream
 // readableStream.push() returns true if the data is below highWaterMark else returns false i.e buffer size exceeds highWaterMark or equal to highWaterMark bytes size of buffer
 // ⭐👀 now a/c to this boolean value the data can be handled acordingly or the stream can be paused
-console.log(readableStream.push('Hello new data was pushed to readable stream'));
+console.log(readableStream.push({
+    name: 'jasmeet'
+}));
