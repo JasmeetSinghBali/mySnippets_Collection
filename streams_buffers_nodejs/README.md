@@ -1,7 +1,7 @@
 > Streams & Buffers Intro
 
 - used heavily in nodejs infra
-- req,res objects , child process , crypto module, fs module ....
+- req (readable stream),res (writable stream) objects , child process , crypto module, fs module ....
 
 - Streams have multipurpose use-case of transferring data be it audio/video or simple binary data.
 
