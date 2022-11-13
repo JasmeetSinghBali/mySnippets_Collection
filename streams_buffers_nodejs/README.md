@@ -9,3 +9,9 @@
 
 - the idea is to break down data into chunks which is then passed via readable stream and stored into definate sized physical space in memeory called buffers and then transferred from buffers to the destination via writable streams.
 - each of these chunks represent data in binary format
+
+> Custom Streams
+
+1. readable
+2. writable
+3. transform
